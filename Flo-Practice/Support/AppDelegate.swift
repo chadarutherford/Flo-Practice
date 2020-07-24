@@ -3,7 +3,7 @@
 //  Flo-Practice
 //
 //  Created by Chad Rutherford on 7/24/20.
-//
+//  Copyright © 2020 chadarutherford. All rights reserved.
 
 import UIKit
 
