@@ -28,6 +28,13 @@ class H20ConsumptionViewController: UIViewController {
 		return button
 	}()
 	
+	let containerView: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.backgroundColor = UIColor(red: 255 / 255, green: 255 / 255, blue: 102 / 255, alpha: 1)
+		return view
+	}()
+	
 	let counterView: CounterView = {
 		let view = CounterView()
 		view.backgroundColor = .systemBackground
@@ -54,14 +61,20 @@ class H20ConsumptionViewController: UIViewController {
 	
 	private func layoutUI() {
 		view.backgroundColor = .systemBackground
-		view.addSubview(counterView)
+		view.addSubview(containerView)
+		containerView.addSubview(counterView)
 		view.addSubview(plusButton)
 		view.addSubview(minusButton)
 		counterView.addSubview(counterLabel)
 		
 		NSLayoutConstraint.activate([
-			counterView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			counterView.bottomAnchor.constraint(equalTo: plusButton.topAnchor, constant: -40),
+			containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -130),
+			containerView.widthAnchor.constraint(equalToConstant: 300),
+			containerView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),
+			
+			counterView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+			counterView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
 			counterView.widthAnchor.constraint(equalToConstant: 230),
 			counterView.heightAnchor.constraint(equalTo: counterView.widthAnchor, multiplier: 1),
 			
